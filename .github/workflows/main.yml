@@ -1,0 +1,15 @@
+name: Sentinel IaC Linting
+on: [push]
+
+jobs:
+  validate-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install yamllint
+        run: sudo apt-get install -y yamllint
+
+      - name: Run YAML Lint
+        run: yamllint .
