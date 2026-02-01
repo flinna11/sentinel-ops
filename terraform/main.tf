@@ -3,21 +3,24 @@
 resource "proxmox_vm_qemu" "web_server" {
 
   # 2. GENERAL SETTINGS
-  name        = "VM-105" # The name that appears in Proxmox
+  vmid        = 106      # Optional: new ID (106)
+  name        = "VM-106" # The name that appears in Proxmox
   target_node = "pve"    # Your Proxmox hostname
-  vmid        = 105      # Optional: Specify a specific ID
-  desc        = "Provisioned via Terraform"
+  description = "Provisioned via Terraform"
 
   # 3. CLONE SETTINGS
   # This MUST match the name of the template you found earlier
-  clone      = "ubuntu-24-template"
+  clone      = "VM 105"
   full_clone = true # 'true' for a standalone copy, 'false' for linked
 
   # 4. HARDWARE CONFIGURATION
-  cores   = 2
-  sockets = 1
-  memory  = 2048
-  cpu_type = "host"  # Use 'host' for best performance on Ubuntu 24.04
+  # Move cores/sockets inside this block
+  cpu {
+    cores   = 2
+    sockets = 1
+    type    = "host"
+  }
+  memory = 2048
   agent   = 1 # Enable QEMU Guest Agent
 
   # 5. DISK & STORAGE

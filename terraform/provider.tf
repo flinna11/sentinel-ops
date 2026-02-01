@@ -2,15 +2,24 @@ terraform {
   required_providers {
     proxmox = {
       source  = "telmate/proxmox"
-      version = "3.0.1-rc6" # Stable release candidate for modern Proxmox
+      version = "3.0.2-rc03" # Updated for Proxmox 9
     }
   }
 }
 
 provider "proxmox" {
-  pm_api_url          = "https://192.168.1.104:8006/api2/json" # Your Proxmox Host IP
-  pm_api_token_id     = "terraform-prov@pve!terraform-token"
-  pm_api_token_secret = "96203c4e-8a71-4608-bb74-22f82085d623"
+  pm_api_url          = "https://192.168.1.104:8006/api2/json"
+  pm_api_token_id     = var.proxmox_token_id
+  pm_api_token_secret = var.proxmox_token_secret
   pm_tls_insecure     = true
+  pm_parallel         = 2
+  pm_timeout          = 600
+
+# Crucial fix for Proxmox 9 compatibility
+  pm_minimum_permission_check = false
+
+# These lines help bypass and troubleshoot permission loops
+  pm_log_enable       = true
+  pm_debug            = true
 }
 
