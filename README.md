@@ -1,24 +1,22 @@
-# 🛡️ Sentinel Node (Ubuntu 24.04 / RKE2)
+# Sentinel-Ops: Proxmox Infrastructure as Code
 
-## 📊 System Overview
-- **Hostname:** ubuntu24 (andy-Standard-PC-i440FX)
-- **IP Address:** 192.168.1.50
-- **Resources:** 24GB RAM | VirtIO-GPU
-- **Role:** Master Node / IaC Controller
+This repository manages my automated home lab environment using **Terraform** and **Proxmox VE**.
 
-## 📂 Repository Structure (IaC)
-- `/playbooks`: Ansible/Automation logic transferred from Windows.
-- `active-netplan.yaml`: Current L2/L3 networking config.
-- `rke2-config.yaml`: Kubernetes cluster parameters.
-- `gdm-display-fix.conf`: Proxmox console scaling configuration.
+## 🚀 Project Overview
+- **Provider**: Telmate/Proxmox (v3.0.2-rc07)
+- **Primary Resource**: Ubuntu Server VM (VM-106)
+- **Automation**: GitHub Actions (Terraform Planning)
 
-## 🔄 Standard Operating Procedure (SOP)
-### To Update Configurations from VM:
-1. Modify the file in `~/sentinel-ops`.
-2. `git add <filename>`
-3. `git commit -m "Description of change"`
-4. `git push`
+## 🛠️ Hardware Specs
+- **Host**: Proxmox VE 9 | 16GB Physical RAM | 7.8GB Swap
+- **Target VM**: 2GB RAM | QEMU Guest Agent Enabled
 
-### To Sync Windows Playbooks:
-1. Drag/Drop to GitHub Web UI.
-2. On VM: `git pull origin main`.
+## 🔐 Security
+- Sensitive credentials are managed via `secret.tfvars` (local) and **GitHub Secrets** (CI/CD).
+- Hardcoded secrets are strictly prohibited and blocked by GitHub Push Protection.
+
+## 📖 Usage
+To deploy or update infrastructure locally:
+1. `terraform init`
+2. `terraform plan -var-file="secret.tfvars"`
+3. `terraform apply -var-file="secret.tfvars"`
