@@ -10,3 +10,7 @@ variable "proxmox_token_secret" {
   sensitive   = true
 }
 
+variable "proxmox_api_url" {
+  type = string
+}
+
