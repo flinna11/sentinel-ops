@@ -18,7 +18,7 @@ provider "proxmox" {
   pm_tls_insecure     = true
 
   # This will now be recognized because of the version bump above
-  pm_minimum_permission_check = false
+#  pm_minimum_permission_check = false
 }
 
 

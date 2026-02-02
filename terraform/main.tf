@@ -1,37 +1,44 @@
 # This file now only manages the "Physical" (Virtual) Hardware
-resource "proxmox_vm_qemu" "kubernetes_node" {
-  name        = "ubuntu24" # Match the name from your 'kubectl get nodes'
-  target_node = "pve"      # The name of your node in Proxmox
-  vmid        = 100        # Your VM ID
+# Control Plane (Master)
+resource "proxmox_vm_qemu" "k8s_master" {
+  name        = "k8s-master"
+  target_node = "pve"
+  vmid        = 100
+  tags        = "k8s;master;sentinel-ops" # Tagged as requested
   
-  # Operating System / Template
-  clone = "ubuntu-24-template" # Or whatever template you used
-
-  # Hardware Specs for RabbitMQ (Needs a bit of beef for 3 nodes)
-  cores   = 4
+  # Recommended specs for Control Plane
+  cores   = 2
   memory  = 4096
   agent   = 1
+  
+  # Cloning from your goldimage template
+  clone = "goldimage" 
 
   network {
+    id     = 0        # Add this line
     model  = "virtio"
     bridge = "vmbr0"
   }
+}
 
+# Worker Nodes
+resource "proxmox_vm_qemu" "k8s_worker" {
+  count       = 2 # VM 106 + one additional worker
+  name        = "k8s-worker-${count.index + 1}"
+  target_node = "pve"
+  vmid        = 106 + count.index
+  tags        = "k8s;worker;sentinel-ops" # Tagged as requested
+  
+  # Recommended specs for Workers
+  cores   = 2
+  memory  = 4096
+  agent   = 1
+  
+  clone = "goldimage"
 
-disk {
-    slot    = "scsi0"      # This replaces 'slot = 0'
-    size    = "40G"
-    type    = "disk"       # This replaces 'type = scsi'
-    storage = "local-lvm"
+  network {
+    id     = 0        # Add this line    
+    model  = "virtio"
+    bridge = "vmbr0"
   }
-
-
-  #disk {
-  #  slot    = 0           # Add this line
-  #  size    = "40G"
-  #  type    = "scsi"
-  #  storage = "local-lvm"
-  # }
-
-
 }
