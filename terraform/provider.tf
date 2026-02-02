@@ -19,6 +19,14 @@ provider "proxmox" {
 
   # This will now be recognized because of the version bump above
 #  pm_minimum_permission_check = false
+
+  pm_log_enable = true
+  pm_log_file   = "terraform-plugin-proxmox.log"
+  
+  # Try this specific naming convention for v3.0.1-rc6
+  pm_parallel = 1
+  pm_timeout  = 600 
+
 }
 
 
