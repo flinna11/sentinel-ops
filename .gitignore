@@ -4,3 +4,4 @@
 *.tfvars
 *.log
 .DS_Store
+secret.tfvars
