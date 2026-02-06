@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metallb.universe.tf/ip-allocated-from-pool: first-pool
+  creationTimestamp: "2026-02-06T20:25:50Z"
+  labels:
+    app: rabbitmq
+  name: rabbitmq
+  namespace: default
+  resourceVersion: "137233"
+  uid: 4f566d13-b245-4d1f-aa30-35627934fe47
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.43.40.0
+  clusterIPs:
+  - 10.43.40.0
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 32474
+    port: 15672
+    protocol: TCP
+    targetPort: 15672
+  selector:
+    app: rabbitmq
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.1.240
+      ipMode: VIP

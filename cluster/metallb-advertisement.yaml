@@ -1,0 +1,12 @@
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"metallb.io/v1beta1","kind":"L2Advertisement","metadata":{"annotations":{},"name":"advertisement","namespace":"metallb-system"}}
+  creationTimestamp: "2026-02-06T21:08:01Z"
+  generation: 1
+  name: advertisement
+  namespace: metallb-system
+  resourceVersion: "136289"
+  uid: c44ab194-c027-4f71-90b8-4a18ca4fc886
