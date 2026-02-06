@@ -8,7 +8,7 @@ metadata:
   labels:
     app: rabbitmq
   name: rabbitmq
-  namespace: default
+  namespace: sentinel
   resourceVersion: "135330"
   uid: 1e4ff4cd-d544-4205-a335-27b3ef7878a6
 spec:
