@@ -5,3 +5,10 @@
 *.log
 .DS_Store
 secret.tfvars
+
+# Terraform junk
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.backup
+infra/terraform/terraform-plugin-*.log
+infra/terraform/secret.tfvars
