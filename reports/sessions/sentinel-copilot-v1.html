@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 25.8.4.2 (Windows)"/>
+	<meta name="created" content="2026-02-08T16:13:00"/>
+	<meta name="changed" content="2026-02-08T16:15:00"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin: 0.79in }
+		p { orphans: 2; color: #000000; line-height: 115%; widows: 2; margin-bottom: 0.1in; direction: ltr; background: transparent }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-size: 12pt; so-language: zh-CN; font-family: "NSimSun" }
+		p.ctl { font-family: "Arial"; font-size: 12pt; so-language: en-US }
+		h1 { orphans: 2; color: #000000; widows: 2; margin-bottom: 0.08in; direction: ltr; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", sans-serif; font-weight: bold; font-size: 24pt; so-language: en-US }
+		h1.cjk { font-size: 24pt; so-language: zh-CN; font-weight: bold; font-family: "NSimSun" }
+		h1.ctl { font-family: "Arial"; font-size: 24pt; so-language: en-US; font-weight: bold }
+		h2 { orphans: 2; color: #000000; widows: 2; margin-top: 0.14in; margin-bottom: 0.08in; direction: ltr; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Serif", sans-serif; font-weight: bold; font-size: 18pt; so-language: en-US }
+		h2.cjk { font-size: 18pt; so-language: zh-CN; font-weight: bold; font-family: "NSimSun" }
+		h2.ctl { font-family: "Arial"; font-size: 18pt; so-language: en-US; font-weight: bold }
+		h3 { orphans: 2; color: #000000; widows: 2; margin-top: 0.1in; margin-bottom: 0.08in; direction: ltr; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", sans-serif; font-weight: bold; font-size: 14pt; so-language: en-US }
+		h3.cjk { font-size: 14pt; so-language: zh-CN; font-weight: bold; font-family: "NSimSun" }
+		h3.ctl { font-family: "Arial"; font-size: 14pt; so-language: en-US; font-weight: bold }
+		pre { orphans: 2; color: #000000; widows: 2; direction: ltr; background: transparent }
+		pre.western { font-family: "Liberation Mono", serif; font-size: 10pt; so-language: en-US }
+		pre.cjk { font-size: 10pt; so-language: zh-CN; font-family: "NSimSun" }
+		pre.ctl { font-family: "Liberation Mono"; font-size: 10pt; so-language: en-US }
+		td p { orphans: 0; color: #000000; widows: 0; direction: ltr; background: transparent }
+		td p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		td p.cjk { font-size: 12pt; so-language: zh-CN; font-family: "NSimSun" }
+		td p.ctl { font-family: "Arial"; font-size: 12pt; so-language: en-US }
+		th p { orphans: 0; color: #000000; text-align: center; widows: 0; direction: ltr; background: transparent }
+		th p.western { font-family: "Liberation Serif", serif; font-weight: bold; font-size: 12pt; so-language: en-US }
+		th p.cjk { font-size: 12pt; so-language: zh-CN; font-weight: bold; font-family: "NSimSun" }
+		th p.ctl { font-family: "Arial"; font-size: 12pt; so-language: en-US; font-weight: bold }
+		strong { font-weight: bold }
+		code.western { font-family: "Liberation Mono", serif }
+		code.cjk { font-family: "NSimSun" }
+		code.ctl { font-family: "Liberation Mono" }
+	</style>
+</head>
+<body lang="en-US" text="#000000" link="#000080" vlink="#800000" dir="ltr"><p class="western" align="left" style="line-height: 115%">
+<strong><font face="Liberation Serif, serif">Clarifying file issue</font></strong></p>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">The
+user mentioned the file is incomplete. I should ask what’s missing
+or offer to regenerate it with the full content. However, I know the
+tools already produced a truncated PDF earlier. I think the best
+approach is to provide the full content in markdown format, which the
+user can convert to PDF locally. I’ll keep it concise but complete,
+and ask which sections were cut. I’ll offer the full manual in
+markdown now. Good catch—thanks for flagging that.</font></p>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Let’s
+sidestep the truncation problem: here’s the </font><strong><font face="Liberation Serif, serif">full,
+self&#8209;contained manual in Markdown</font></strong><font face="Liberation Serif, serif">,
+which you can save as a </font><code class="western">.md</code><font face="Liberation Serif, serif">
+or </font><code class="western">.docx</code><font face="Liberation Serif, serif">
+and export to PDF locally (VS Code, Obsidian, Word, etc.). This way
+you’re guaranteed a complete, non&#8209;truncated version.</font></p>
+<hr size="1"/>
+
+<h1 class="western" align="left">RKE2 + Longhorn + RabbitMQ
+Engineering Manual</h1>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Architecture,
+Operations, and Disaster Recovery</font></strong><font face="Liberation Serif, serif"><br/>
+Prepared
+for: Andy<br/>
+Edition: 2026<br/>
+Classification: Internal
+Engineering Documentation</font></p>
+<hr size="1"/>
+
+<h2 class="western" align="left">Index</h2>
+<ol>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Introduction </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">System architecture overview </font>
+	</p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">2.1 Logical data flow </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">2.2 Component responsibilities
+		</font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">2.3 ASCII architecture diagram
+		</font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Operational principles </font>
+	</p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">3.1 Storage logic </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">3.2 Scheduling logic </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">3.3 Failure domains </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Disaster recovery runbook </font>
+	</p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">4.1 Executive summary </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">4.2 Preconditions </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">4.3 Severity levels </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">4.4 Scenario A — node loss </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">4.5 Scenario B — volume
+		faulted / detached </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">4.6 Scenario C — full
+		cluster rebuild </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">4.7 Post&#8209;incident
+		checklist </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Longhorn troubleshooting cheat
+	sheet </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">RabbitMQ Helm overlay
+	(best&#8209;practice) </font>
+	</p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">6.1 YAML overlay </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">6.2 Deployment logic </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">6.3 Upgrade logic </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Appendices </font>
+	</p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">7.1 Key commands </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">7.2 Replica selection logic </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">7.3
+		Salvage decision tree </font>
+		</p></li>
+	</ul>
+</ol>
+<hr size="1"/>
+
+<h2 class="western" align="left">1. Introduction</h2>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">This
+engineering manual documents the architecture, operational model, and
+disaster&#8209;recovery procedures for a production&#8209;grade
+deployment of:</font></p>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">RKE2 (Kubernetes distribution) </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Longhorn (distributed block
+	storage) </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">RabbitMQ
+	(stateful message broker) </font>
+	</p></li>
+</ul>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">The
+goal is a </font><strong><font face="Liberation Serif, serif">deterministic,
+logically justified</font></strong><font face="Liberation Serif, serif">
+operational framework: every action is tied to a clear reason and
+failure mode.</font></p>
+<hr size="1"/>
+
+<h2 class="western" align="left">2. System architecture overview</h2>
+<h3 class="western" align="left">2.1 Logical data flow</h3>
+<ol>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Applications publish and
+	consume messages via RabbitMQ. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">RabbitMQ persists durable state
+	under </font><code class="western">/var/lib/rabbitmq/mnesia</code><font face="Liberation Serif, serif">.
+	</font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">That path is backed by a
+	Longhorn RWO block device exposed as a Kubernetes PVC. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Longhorn replicates the
+	underlying data across worker nodes. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">RKE2
+	manages node lifecycle, pod scheduling, and control&#8209;plane
+	availability. </font>
+	</p></li>
+</ol>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">The
+dependency chain is:</font></p>
+<p align="left" style="margin-left: 0.39in; margin-right: 0.39in; margin-bottom: 0.2in; line-height: 100%">
+<font face="Liberation Serif, serif">RKE2 → Longhorn → RabbitMQ →
+Applications</font></p>
+<hr size="1"/>
+
+<h3 class="western" align="left">2.2 Component responsibilities</h3>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Applications:</font></strong><font face="Liberation Serif, serif">
+	Business logic, message production/consumption. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">RabbitMQ:</font></strong><font face="Liberation Serif, serif">
+	Queue semantics, message durability, clustering (if enabled). </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Longhorn:</font></strong><font face="Liberation Serif, serif">
+	Block device abstraction, replication, failover, salvage. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">RKE2:</font></strong><font face="Liberation Serif, serif">
+	Cluster orchestration, node health, scheduling, upgrades. </font>
+	</p></li>
+</ul>
+<hr size="1"/>
+
+<h3 class="western" align="left">2.3 ASCII architecture diagram</h3>
+<pre class="western" style="text-align: left"><code class="western">+---------------------------------------------------------------+</code>
+<code class="western">|                         Users / Apps                         |</code>
+<code class="western">|             (Producers / Consumers of Messages)              |</code>
+<code class="western">+-------------------------------+-------------------------------+</code>
+<code class="western">                                </code><code class="western">|</code>
+<code class="western">                                </code><code class="western">v</code>
+<code class="western">+---------------------------------------------------------------+</code>
+<code class="western">|                        RabbitMQ Layer                         |</code>
+<code class="western">|                                                               |</code>
+<code class="western">|  +-------------------+      +-------------------+             |</code>
+<code class="western">|  |  RabbitMQ Pod     |      |  RabbitMQ Pod     |   (optional)|</code>
+<code class="western">|  |  StatefulSet      |      |  HA Replica       |             |</code>
+<code class="western">|  +---------+---------+      +---------+---------+             |</code>
+<code class="western">|            |                           |                      |</code>
+<code class="western">|            | PVC: rabbitmq-data        | PVC: rabbitmq-data-1 |</code>
+<code class="western">+------------|---------------------------|-----------------------+</code>
+<code class="western">             </code><code class="western">|</code>
+<code class="western">             </code><code class="western">v</code>
+<code class="western">+---------------------------------------------------------------+</code>
+<code class="western">|                        Longhorn Layer                         |</code>
+<code class="western">|                                                               |</code>
+<code class="western">|  StorageClass: longhorn-rabbitmq                              |</code>
+<code class="western">|    - provisioner: driver.longhorn.io                          |</code>
+<code class="western">|    - numberOfReplicas: 2                                      |</code>
+<code class="western">|                                                               |</code>
+<code class="western">|  +-------------------+      +-------------------+             |</code>
+<code class="western">|  |  Volume: pvc-...  |      |  Volume: pvc-...  |             |</code>
+<code class="western">|  |  (40Gi, RWO)      |      |  (40Gi, RWO)      |             |</code>
+<code class="western">|  +---------+---------+      +---------+---------+             |</code>
+<code class="western">|            |                           |                      |</code>
+<code class="western">|   +--------+--------+          +-------+--------+             |</code>
+<code class="western">|   |  Engine Pod     |          |  Engine Pod    |             |</code>
+<code class="western">|   | (per volume)    |          | (per volume)   |             |</code>
+<code class="western">|   +--------+--------+          +-------+--------+             |</code>
+<code class="western">|            |                           |                      |</code>
+<code class="western">|   +--------+--------+          +-------+--------+             |</code>
+<code class="western">|   | Replica Pod(s)  |          | Replica Pod(s) |             |</code>
+<code class="western">|   | (per node)      |          | (per node)     |             |</code>
+<code class="western">|   +--------+--------+          +-------+--------+             |</code>
+<code class="western">|            |                           |                      |</code>
+<code class="western">+------------|---------------------------|-----------------------+</code>
+<code class="western">             </code><code class="western">|</code>
+<code class="western">             </code><code class="western">v</code>
+<code class="western">+---------------------------------------------------------------+</code>
+<code class="western">|                         RKE2 Cluster                          |</code>
+<code class="western">|                                                               |</code>
+<code class="western">|  +-------------------+      +-------------------+             |</code>
+<code class="western">|  |  worker-1         |      |  worker-2         |             |</code>
+<code class="western">|  |  - rke2-agent     |      |  - rke2-agent     |             |</code>
+<code class="western">|  |  - kubelet        |      |  - kubelet        |             |</code>
+<code class="western">|  |  - longhorn-mgr   |      |  - longhorn-mgr   |             |</code>
+<code class="western">|  |  - inst-mgr pods  |      |  - inst-mgr pods  |             |</code>
+<code class="western">|  |  - /var/lib/longhorn (replica data)          |             |</code>
+<code class="western">|  +-------------------+      +-------------------+             |</code>
+<code class="western">|                                                               |</code>
+<code class="western">|  +-------------------+                                        |</code>
+<code class="western">|  |  k8s-master        |                                       |</code>
+<code class="western">|  |  - rke2-server     |                                       |</code>
+<code class="western">|  |  - API server      |                                       |</code>
+<code class="western">|  +-------------------+                                       |</code>
+<code class="western">+---------------------------------------------------------------+</code></pre>
+<hr size="1"/>
+
+<h2 class="western" align="left">3. Operational principles</h2>
+<h3 class="western" align="left">3.1 Storage logic</h3>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Longhorn’s
+model:</font></p>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Engine:</font></strong><font face="Liberation Serif, serif">
+	The process that exposes the block device and coordinates replicas. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Replicas:</font></strong><font face="Liberation Serif, serif">
+	Sparse files on worker disks under </font><code class="western">/var/lib/longhorn/replicas/...</code><font face="Liberation Serif, serif">.
+	</font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Replication:</font></strong><font face="Liberation Serif, serif">
+	Synchronous; writes are acknowledged only when replicas confirm. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Self&#8209;healing:</font></strong><font face="Liberation Serif, serif">
+	Missing replicas are rebuilt when nodes return or new nodes are
+	added. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Salvage:</font></strong><font face="Liberation Serif, serif">
+	Manual re&#8209;adoption of replicas when metadata/engine state is
+	broken but data remains. </font>
+	</p></li>
+</ul>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Key
+idea: </font><strong><font face="Liberation Serif, serif">if the
+replica files are intact, the volume can usually be salvaged.</font></strong></p>
+<hr size="1"/>
+
+<h3 class="western" align="left">3.2 Scheduling logic</h3>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">RabbitMQ uses a </font><strong><font face="Liberation Serif, serif">ReadWriteOnce</font></strong><font face="Liberation Serif, serif">
+	PVC. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">The pod must run on the node
+	where the Longhorn volume is attached. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">RKE2 may reschedule pods
+	during: </font>
+	</p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Node drain </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Upgrades </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Node
+		failure </font>
+		</p></li>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Longhorn’s
+CSI driver handles attach/detach as pods move, but stale engines or
+broken instance managers can block this.</font></p>
+<hr size="1"/>
+
+<h3 class="western" align="left">3.3 Failure domains</h3>
+<table width="611" cellpadding="2" cellspacing="0">
+	<col width="178"/>
+	<col width="249"/>
+	<col width="172"/>
+	<tr>
+		<th width="178" style="border: none; padding: 0in"><p class="western">
+			<font face="Liberation Serif, serif">Failure domain</font></p>
+		</th>
+		<th width="249" style="border: none; padding: 0in"><p class="western">
+			<font face="Liberation Serif, serif">Typical symptom</font></p>
+		</th>
+		<th width="172" style="border: none; padding: 0in"><p class="western">
+			<font face="Liberation Serif, serif">Primary tool</font></p>
+		</th>
+	</tr>
+	<tr>
+		<td width="178" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Single worker node</font></p>
+		</td>
+		<td width="249" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Degraded volume, one replica
+			missing</font></p>
+		</td>
+		<td width="172" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Replica rebuild</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="178" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Engine/metadata mismatch</font></p>
+		</td>
+		<td width="249" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Volume Detached or Faulted</font></p>
+		</td>
+		<td width="172" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Engine deletion + salvage</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="178" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Full control&#8209;plane loss</font></p>
+		</td>
+		<td width="249" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Lost CRDs, volumes not
+			visible</font></p>
+		</td>
+		<td width="172" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Reinstall + salvage</font></p>
+		</td>
+	</tr>
+</table>
+<hr size="1"/>
+
+<h2 class="western" align="left">4. Disaster recovery runbook</h2>
+<h3 class="western" align="left">4.1 Executive summary</h3>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">This
+runbook covers recovery from:</font></p>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Node failures </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Volume degradation and faults </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Engine/metadata corruption </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Full
+	cluster rebuilds with disks preserved </font>
+	</p></li>
+</ul>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Guiding
+principle: </font><strong><font face="Liberation Serif, serif">prefer
+salvage over restore when data on disk is intact and consistent;
+prefer restore when integrity is doubtful.</font></strong></p>
+<hr size="1"/>
+
+<h3 class="western" align="left">4.2 Preconditions</h3>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Before
+executing DR steps, confirm:</font></p>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<code class="western">kubectl</code><font face="Liberation Serif, serif">
+	can reach the API server (or you know you’re in full rebuild
+	mode). </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<code class="western">longhorn-manager</code><font face="Liberation Serif, serif">
+	pods are Running on all worker nodes. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Instance&#8209;manager pods are
+	Running on all worker nodes. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Worker
+	disks containing </font><code class="western">/var/lib/longhorn</code><font face="Liberation Serif, serif">
+	are present and not obviously corrupted. </font>
+	</p></li>
+</ul>
+<hr size="1"/>
+
+<h3 class="western" align="left">4.3 Severity levels</h3>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">SEV&#8209;1:</font></strong><font face="Liberation Serif, serif">
+	RabbitMQ unavailable, volume Faulted or Detached, business impact
+	high. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">SEV&#8209;2:</font></strong><font face="Liberation Serif, serif">
+	RabbitMQ available but volume Degraded; risk of data loss if another
+	node fails. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">SEV&#8209;3:</font></strong><font face="Liberation Serif, serif">
+	Node offline but service stable; volume Healthy or Degraded with
+	redundancy. </font>
+	</p></li>
+</ul>
+<hr size="1"/>
+
+<h3 class="western" align="left">4.4 Scenario A — node loss (volume
+degraded)</h3>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Logic:</font></strong><font face="Liberation Serif, serif"><br/>
+A
+node going offline removes one replica. Longhorn marks the volume
+</font><strong><font face="Liberation Serif, serif">Degraded</font></strong><font face="Liberation Serif, serif">
+but keeps it </font><strong><font face="Liberation Serif, serif">Attached</font></strong><font face="Liberation Serif, serif">
+and usable. When the node returns, Longhorn rebuilds the missing
+replica.</font></p>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Steps:</font></strong></p>
+<ol>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Check
+	node and volume status:</font></p></li>
+</ol>
+<pre class="western" style="text-align: left; margin-left: 0.49in"><code class="western">kubectl get nodes</code>
+<code class="western">kubectl -n longhorn-system get volumes.longhorn.io</code></pre>
+<ol start="2">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">If
+	a worker is </font><code class="western">NotReady</code><font face="Liberation Serif, serif">,
+	attempt to bring it back:</font></p></li>
+</ol>
+<pre class="western" style="text-align: left; margin-left: 0.49in"><code class="western"># On the affected worker</code>
+<code class="western">sudo systemctl restart rke2-agent</code></pre>
+<ol start="3">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Once
+	the node is Ready, watch the volume:</font></p></li>
+</ol>
+<pre class="western" style="margin-bottom: 0.2in; text-align: left; margin-left: 0.49in"><code class="western">kubectl -n longhorn-system get volumes.longhorn.io -w</code></pre><p class="western" align="left" style="line-height: 115%; margin-left: 0.49in">
+<font face="Liberation Serif, serif">Expect: </font><code class="western">Degraded</code><font face="Liberation Serif, serif">
+→ </font><code class="western">Healthy</code><font face="Liberation Serif, serif">
+after replica rebuild.</font></p>
+<ol start="4">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">If
+	RabbitMQ is unstable, restart the pod:</font></p></li>
+</ol>
+<pre class="western" style="margin-bottom: 0.2in; text-align: left; margin-left: 0.49in"><code class="western">kubectl rollout restart statefulset rabbitmq -n &lt;namespace&gt;</code></pre>
+<hr size="1"/>
+
+<h3 class="western" align="left">4.5 Scenario B — volume faulted /
+detached, data on disk</h3>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">This
+matches your “stalled 40Gi volume” situation.</font></p>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Logic:</font></strong><font face="Liberation Serif, serif"><br/>
+A
+stale or broken engine object can prevent Longhorn from attaching the
+volume. Deleting the engine forces the volume into </font><strong><font face="Liberation Serif, serif">Faulted</font></strong><font face="Liberation Serif, serif">,
+which unlocks </font><strong><font face="Liberation Serif, serif">Salvage</font></strong><font face="Liberation Serif, serif">.
+Salvage lets you explicitly choose which replicas to trust.</font></p>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Steps:</font></strong></p>
+<ol>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Verify
+	Longhorn control plane:</font></p></li>
+</ol>
+<pre class="western" style="margin-bottom: 0.2in; text-align: left; margin-left: 0.49in"><code class="western">kubectl -n longhorn-system get pods</code></pre>
+<ol start="2">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">List
+	engines:</font></p></li>
+</ol>
+<pre class="western" style="margin-bottom: 0.2in; text-align: left; margin-left: 0.49in"><code class="western">kubectl -n longhorn-system get engines.longhorn.io</code></pre>
+<ol start="3">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Delete
+	the engine for the problematic volume:</font></p></li>
+</ol>
+<pre class="western" style="margin-bottom: 0.2in; text-align: left; margin-left: 0.49in"><code class="western">kubectl -n longhorn-system delete engine -l longhornvolume=&lt;volume-name&gt;</code></pre><p class="western" align="left" style="line-height: 115%; margin-left: 0.49in">
+<font face="Liberation Serif, serif">After this, the volume should
+show as </font><strong><font face="Liberation Serif, serif">Faulted</font></strong><font face="Liberation Serif, serif">
+in the Longhorn UI.</font></p>
+<ol start="4">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">In
+	the Longhorn UI:</font></p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Go to </font><strong><font face="Liberation Serif, serif">Volumes</font></strong><font face="Liberation Serif, serif">.
+		</font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Locate the Faulted volume
+		(e.g., </font><code class="western">pvc-5adeffdc-...</code><font face="Liberation Serif, serif">).
+		</font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Click </font><strong><font face="Liberation Serif, serif">⋮
+		→ Salvage</font></strong><font face="Liberation Serif, serif">. </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Select replicas on </font><code class="western">worker-1</code><font face="Liberation Serif, serif">
+		and </font><code class="western">worker-2</code><font face="Liberation Serif, serif">
+		that correspond to the preserved data. </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Confirm. </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Wait
+	for the volume to transition:</font></p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Faulted → Detached →
+		Healthy/Degraded. </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Actual size should reflect the
+		expected data size (e.g., ~40Gi). </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Attach
+	the volume to the node where RabbitMQ will run (via UI or by letting
+	the pod schedule).</font></p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Restart
+	RabbitMQ:</font></p></li>
+</ol>
+<pre class="western" style="text-align: left; margin-left: 0.49in"><code class="western">kubectl scale statefulset rabbitmq -n &lt;namespace&gt; --replicas=0</code>
+<code class="western">kubectl scale statefulset rabbitmq -n &lt;namespace&gt; --replicas=1</code></pre>
+<ol start="8">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Validate:</font></p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">RabbitMQ pod Running. </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Volume Attached and
+		Healthy/Degraded. </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Application
+		behaviour normal. </font>
+		</p></li>
+	</ul>
+</ol>
+<hr size="1"/>
+
+<h3 class="western" align="left">4.6 Scenario C — full cluster
+rebuild, disks preserved</h3>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Logic:</font></strong><font face="Liberation Serif, serif"><br/>
+Longhorn’s
+metadata (CRDs, etc.) lives in Kubernetes; replica data lives on
+disk. If you lose the cluster but keep the disks, you can reinstall
+Longhorn and re&#8209;adopt replicas.</font></p>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Steps:</font></strong></p>
+<ol>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Rebuild
+	RKE2:</font></p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Recreate master and worker
+		nodes. </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Join workers to the cluster. </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Ensure the same disks are
+		mounted at </font><code class="western">/var/lib/longhorn</code><font face="Liberation Serif, serif">.
+		</font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Reinstall
+	Longhorn (same major/minor version as before):</font></p></li>
+</ol>
+<pre class="western" style="margin-bottom: 0.2in; text-align: left; margin-left: 0.49in"><code class="western">kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.5.3/deploy/longhorn.yaml</code></pre>
+<ol start="3">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Wait
+	for </font><code class="western">longhorn-manager</code><font face="Liberation Serif, serif">,
+	</font><code class="western">instance-manager</code><font face="Liberation Serif, serif">,
+	and </font><code class="western">engine-image</code><font face="Liberation Serif, serif">
+	pods to be Running.</font></p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">In
+	the Longhorn UI:</font></p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Longhorn should detect
+		existing replica directories on the worker disks. </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Recreate
+	volume shells:</font></p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Create a new volume with the
+		same size and name (or at least same PVC binding) as before. </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">If necessary, use </font><code class="western">Retain</code><font face="Liberation Serif, serif">
+		reclaim policy to keep PVs. </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Use
+	</font><strong><font face="Liberation Serif, serif">Salvage</font></strong><font face="Liberation Serif, serif">:</font></p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Mark the volume Faulted if
+		needed (delete engine). </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Salvage and select the
+		replicas corresponding to the preserved data. </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Recreate
+	the RabbitMQ PVC and StatefulSet:</font></p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Use the same </font><code class="western">claimName</code><font face="Liberation Serif, serif">
+		and </font><code class="western">storageClassName</code><font face="Liberation Serif, serif">
+		so the PVC binds to the salvaged volume. </font>
+		</p></li>
+	</ul>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Validate
+	RabbitMQ and data integrity.</font></p></li>
+</ol>
+<hr size="1"/>
+
+<h3 class="western" align="left">4.7 Post&#8209;incident checklist</h3>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">[ ] All nodes in </font><code class="western">Ready</code><font face="Liberation Serif, serif">
+	state (or intentionally drained). </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">[ ] Longhorn volumes for
+	RabbitMQ: </font><strong><font face="Liberation Serif, serif">Healthy</font></strong><font face="Liberation Serif, serif">.
+	</font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">[ ] Replica count matches
+	policy (e.g., 2 replicas). </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">[ ] RabbitMQ pod Running, no
+	CrashLoopBackOff. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">[ ] Queues and messages behave
+	as expected. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">[ ] Backups tested or at least
+	verified as present. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">[
+	] Incident documented with root cause and remediation. </font>
+	</p></li>
+</ul>
+<hr size="1"/>
+
+<h2 class="western" align="left">5. Longhorn troubleshooting cheat
+sheet</h2>
+<h3 class="western" align="left">Fast status commands</h3>
+<pre class="western" style="text-align: left"><code class="western"># Cluster and nodes</code>
+<code class="western">kubectl get nodes</code>
+
+<code class="western"># Longhorn core components</code>
+<code class="western">kubectl -n longhorn-system get pods</code>
+
+<code class="western"># Volumes</code>
+<code class="western">kubectl -n longhorn-system get volumes.longhorn.io</code>
+
+<code class="western"># Engines and replicas</code>
+<code class="western">kubectl -n longhorn-system get engines.longhorn.io</code>
+<code class="western">kubectl -n longhorn-system get replicas.longhorn.io</code></pre><h3 class="western" align="left">
+Symptoms → causes → fixes</h3>
+<table width="665" cellpadding="2" cellspacing="0">
+	<col width="179"/>
+	<col width="215"/>
+	<col width="259"/>
+	<tr>
+		<th width="179" style="border: none; padding: 0in"><p class="western">
+			<font face="Liberation Serif, serif">Symptom</font></p>
+		</th>
+		<th width="215" style="border: none; padding: 0in"><p class="western">
+			<font face="Liberation Serif, serif">Likely cause</font></p>
+		</th>
+		<th width="259" style="border: none; padding: 0in"><p class="western">
+			<font face="Liberation Serif, serif">Typical fix</font></p>
+		</th>
+	</tr>
+	<tr>
+		<td width="179" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Volume Degraded</font></p>
+		</td>
+		<td width="215" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Missing or rebuilding replica</font></p>
+		</td>
+		<td width="259" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Wait for rebuild; check node
+			health</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="179" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Volume Detached, pod Pending</font></p>
+		</td>
+		<td width="215" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Engine/CSI issue, node
+			mismatch</font></p>
+		</td>
+		<td width="259" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Check engines, delete stale
+			engine, reattach</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="179" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Volume shows 0 B</font></p>
+		</td>
+		<td width="215" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Metadata/engine mismatch</font></p>
+		</td>
+		<td width="259" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Force Faulted → Salvage →
+			select replicas</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="179" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Engine image not deployed</font></p>
+		</td>
+		<td width="215" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Engine image DaemonSet not on
+			node</font></p>
+		</td>
+		<td width="259" style="border: none; padding: 0in"><p class="western" align="left">
+			<font face="Liberation Serif, serif">Restart instance managers /
+			engine image pods</font></p>
+		</td>
+	</tr>
+</table>
+<h3 class="western" align="left">Quick fixes</h3>
+<pre class="western" style="text-align: left"><code class="western"># Restart instance managers</code>
+<code class="western">kubectl -n longhorn-system delete pods -l longhorn.io/component=instance-manager</code>
+
+<code class="western"># Restart Longhorn managers</code>
+<code class="western">kubectl -n longhorn-system delete pods -l app=longhorn-manager</code>
+
+<code class="western"># Force volume into Faulted state (for Salvage)</code>
+<code class="western">kubectl -n longhorn-system delete engine -l longhornvolume=&lt;volume-name&gt;</code></pre><h3 class="western" align="left">
+Salvage usage rules</h3>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Use
+Salvage when:</font></strong></p>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Volume is Faulted. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Replica data exists on worker
+	disks. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">You
+	have reasonable confidence in disk integrity. </font>
+	</p></li>
+</ul>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Avoid
+Salvage when:</font></strong></p>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Disks show corruption or
+	hardware errors. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">You
+	have a clean, recent backup that is safer to restore. </font>
+	</p></li>
+</ul>
+<hr size="1"/>
+
+<h2 class="western" align="left">6. RabbitMQ Helm overlay
+(best&#8209;practice)</h2>
+<h3 class="western" align="left">6.1 YAML overlay</h3>
+<pre class="western" style="text-align: left"><code class="western">replicaCount: 1</code>
+
+<code class="western">auth:</code>
+<code class="western">  </code><code class="western">username: admin</code>
+<code class="western">  </code><code class="western">password: changeme</code>
+<code class="western">  </code><code class="western">erlangCookie: supersecretcookie</code>
+
+<code class="western">persistence:</code>
+<code class="western">  </code><code class="western">enabled: true</code>
+<code class="western">  </code><code class="western">storageClass: longhorn-rabbitmq</code>
+<code class="western">  </code><code class="western">accessMode: ReadWriteOnce</code>
+<code class="western">  </code><code class="western">size: 40Gi</code>
+
+<code class="western">resources:</code>
+<code class="western">  </code><code class="western">requests:</code>
+<code class="western">    </code><code class="western">cpu: 250m</code>
+<code class="western">    </code><code class="western">memory: 512Mi</code>
+<code class="western">  </code><code class="western">limits:</code>
+<code class="western">    </code><code class="western">cpu: 1</code>
+<code class="western">    </code><code class="western">memory: 1Gi</code>
+
+<code class="western">volumePermissions:</code>
+<code class="western">  </code><code class="western">enabled: true</code>
+
+<code class="western">podSecurityContext:</code>
+<code class="western">  </code><code class="western">fsGroup: 1001</code>
+
+<code class="western">containerSecurityContext:</code>
+<code class="western">  </code><code class="western">runAsUser: 1001</code>
+<code class="western">  </code><code class="western">runAsNonRoot: true</code>
+
+<code class="western">livenessProbe:</code>
+<code class="western">  </code><code class="western">enabled: true</code>
+<code class="western">  </code><code class="western">initialDelaySeconds: 60</code>
+<code class="western">  </code><code class="western">periodSeconds: 30</code>
+<code class="western">  </code><code class="western">timeoutSeconds: 5</code>
+<code class="western">  </code><code class="western">failureThreshold: 6</code>
+
+<code class="western">readinessProbe:</code>
+<code class="western">  </code><code class="western">enabled: true</code>
+<code class="western">  </code><code class="western">initialDelaySeconds: 20</code>
+<code class="western">  </code><code class="western">periodSeconds: 10</code>
+<code class="western">  </code><code class="western">timeoutSeconds: 5</code>
+<code class="western">  </code><code class="western">failureThreshold: 6</code>
+
+<code class="western">startupProbe:</code>
+<code class="western">  </code><code class="western">enabled: true</code>
+<code class="western">  </code><code class="western">initialDelaySeconds: 30</code>
+<code class="western">  </code><code class="western">periodSeconds: 10</code>
+<code class="western">  </code><code class="western">failureThreshold: 30</code>
+
+<code class="western">extraEnvVars:</code>
+<code class="western">  </code><code class="western">- name: RABBITMQ_VM_MEMORY_HIGH_WATERMARK</code>
+<code class="western">    </code><code class="western">value: &quot;0.4&quot;</code>
+<code class="western">  </code><code class="western">- name: RABBITMQ_DISK_FREE_LIMIT_ABSOLUTE</code>
+<code class="western">    </code><code class="western">value: &quot;2GB&quot;</code></pre>
+<hr size="1"/>
+
+<h3 class="western" align="left">6.2 Deployment logic</h3>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Single replica</font></strong><font face="Liberation Serif, serif">
+	to start; you can later move to clustered RabbitMQ if needed. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Longhorn storageClass</font></strong><font face="Liberation Serif, serif">
+	ensures replicated, RWO storage. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<strong><font face="Liberation Serif, serif">Probes</font></strong><font face="Liberation Serif, serif">
+	(liveness, readiness, startup) prevent flapping during startup and
+	recovery. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Security
+	contexts</font></strong><font face="Liberation Serif, serif"> ensure
+	correct permissions on the mounted volume. </font>
+	</p></li>
+</ul>
+<p class="western" align="left" style="line-height: 115%"><strong><font face="Liberation Serif, serif">Install
+example:</font></strong></p>
+<pre class="western" style="text-align: left"><code class="western">helm repo add bitnami https://charts.bitnami.com/bitnami</code>
+<code class="western">helm repo update</code>
+
+<code class="western">helm install rabbitmq bitnami/rabbitmq \</code>
+<code class="western">  </code><code class="western">-f values-longhorn.yaml \</code>
+<code class="western">  </code><code class="western">--namespace messaging \</code>
+<code class="western">  </code><code class="western">--create-namespace</code></pre>
+<hr size="1"/>
+
+<h3 class="western" align="left">6.3 Upgrade logic</h3>
+<ol>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Confirm backups and/or Longhorn
+	snapshots exist. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Optionally
+	scale down to 0 for conservative upgrades: </font>
+	</p></li>
+</ol>
+<pre class="western" style="margin-bottom: 0.2in; text-align: left; margin-left: 0.49in"><code class="western">kubectl scale statefulset rabbitmq -n messaging --replicas=0</code></pre>
+<ol start="3">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Upgrade
+	the Helm release: </font>
+	</p></li>
+</ol>
+<pre class="western" style="text-align: left; margin-left: 0.49in"><code class="western">helm upgrade rabbitmq bitnami/rabbitmq \</code>
+<code class="western">  </code><code class="western">-f values-longhorn.yaml \</code>
+<code class="western">  </code><code class="western">-n messaging</code></pre>
+<ol start="4">
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Scale
+	back up (if scaled down): </font>
+	</p></li>
+</ol>
+<pre class="western" style="margin-bottom: 0.2in; text-align: left; margin-left: 0.49in"><code class="western">kubectl scale statefulset rabbitmq -n messaging --replicas=1</code></pre>
+<ol start="5">
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Verify: </font>
+	</p>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Pod Running </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+		<font face="Liberation Serif, serif">Volume Attached </font>
+		</p></li>
+		<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Queues
+		accessible </font>
+		</p></li>
+	</ul>
+</ol>
+<hr size="1"/>
+
+<h2 class="western" align="left">7. Appendices</h2>
+<h3 class="western" align="left">7.1 Key commands</h3>
+<pre class="western" style="text-align: left"><code class="western"># Engine deletion (for a given volume)</code>
+<code class="western">kubectl -n longhorn-system delete engine -l longhornvolume=&lt;volume-name&gt;</code>
+
+<code class="western"># Restart instance managers</code>
+<code class="western">kubectl -n longhorn-system delete pods -l longhorn.io/component=instance-manager</code>
+
+<code class="western"># Restart Longhorn managers</code>
+<code class="western">kubectl -n longhorn-system delete pods -l app=longhorn-manager</code></pre>
+<hr size="1"/>
+
+<h3 class="western" align="left">7.2 Replica selection logic</h3>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">When
+using Salvage:</font></p>
+<ul>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Prefer replicas on nodes that
+	did </font><strong><font face="Liberation Serif, serif">not</font></strong><font face="Liberation Serif, serif">
+	crash mid&#8209;write. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%; margin-bottom: 0in">
+	<font face="Liberation Serif, serif">Prefer replicas with the most
+	recent modification timestamps. </font>
+	</p></li>
+	<li><p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">Avoid
+	replicas on disks that show I/O errors or SMART warnings. </font>
+	</p></li>
+</ul>
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">If
+in doubt and you have backups, consider restoring instead of
+salvaging.</font></p>
+<hr size="1"/>
+
+<h3 class="western" align="left">7.3 Salvage decision tree</h3>
+<pre class="western" style="text-align: left"><code class="western">Volume Faulted?</code>
+<code class="western">  └── </code><code class="western">No  → Do not use Salvage. Investigate other causes.</code>
+<code class="western">  └── </code><code class="western">Yes → Is data present on disk (replica dirs)?</code>
+<code class="western">            └── </code><code class="western">No  → Restore from backup.</code>
+<code class="western">            └── </code><code class="western">Yes → Use Salvage:</code>
+<code class="western">                      </code><code class="western">- Delete engine (if needed)</code>
+<code class="western">                      </code><code class="western">- Salvage in UI</code>
+<code class="western">                      </code><code class="western">- Select replicas</code>
+<code class="western">                      </code><code class="western">- Attach volume</code>
+<code class="western">                      </code><code class="western">- Restart workload</code>
+<code class="western">                      </code><code class="western">- Verify data</code></pre>
+<hr size="1"/>
+
+<p class="western" align="left" style="line-height: 115%"><font face="Liberation Serif, serif">If
+you’d like, I can now give you a minimal Pandoc command or VS Code
+extension suggestion to turn this Markdown into a PDF on your
+machine, so you’re not blocked by partial file generation again.</font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0in">
+<br/>
+
+</p>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 25.8.4.2 (Windows)"/>
+	<meta name="created" content="2026-02-13T19:13:07.761466300"/>
+	<meta name="changed" content="2026-02-13T19:14:10.708942700"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		h1 { margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", serif; font-weight: bold; font-size: 24pt }
+		h1.cjk { font-size: 24pt; font-family: "NSimSun"; font-weight: bold }
+		h1.ctl { font-family: "Arial"; font-size: 24pt; font-weight: bold }
+		h2 { margin-top: 0.14in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Serif", serif; font-weight: bold; font-size: 18pt }
+		h2.cjk { font-size: 18pt; font-family: "NSimSun"; font-weight: bold }
+		h2.ctl { font-family: "Arial"; font-size: 18pt; font-weight: bold }
+		h3 { margin-top: 0.1in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", serif; font-weight: bold; font-size: 14pt }
+		h3.cjk { font-size: 14pt; font-family: "NSimSun"; font-weight: bold }
+		h3.ctl { font-family: "Arial"; font-size: 14pt; font-weight: bold }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-size: 10pt; font-family: "NSimSun", monospace }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		code.western { font-family: "Liberation Mono", monospace }
+		code.cjk { font-family: "NSimSun", monospace }
+		code.ctl { font-family: "Liberation Mono", monospace }
+		a:link { color: #000080; text-decoration: underline }
+		a:visited { color: #800000; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p>This
+guide organizes your <b>Sentinel Server Update &amp; Extension</b>
+into a high-clarity, beginner-friendly roadmap. By adopting an
+incremental approach, you will build a functional &quot;Skeleton&quot;
+first, ensuring each tool communicates before adding the
+high-availability and AI complexities.</p>
+<div id="model-response-message-contentr_a8ab0a57ba85eac5" dir="ltr">
+	<hr/>
+
+	<h1 class="western">🛡️ Sentinel Server: DevSecOps &quot;Living
+	Lab&quot; Roadmap</h1>
+	<h2 class="western">📑 Index</h2>
+	<ol>
+		<li><p><b>Stage 1: The &quot;Crawl&quot; (Skeleton &amp;
+		Communication)</b></p>
+		<ul>
+			<li><p>Phase I: Infrastructure Reset</p></li>
+			<li><p>Phase II: The Golden Template</p></li>
+			<li><p>Phase III: Physical Quorum (The 3-Part Vote)</p></li>
+			<li><p>Phase IV: Basic Compute (RKE2) &amp; Storage (Longhorn)</p></li>
+			<li><p>Phase V: The Command Center (Mattermost)</p></li>
+		</ul>
+		<li><p><b>Stage 2: The &quot;Walk&quot; (Observability &amp;
+		Packaging)</b></p>
+		<ul>
+			<li><p>Phase VI: The Packaging Layer (Helm)</p></li>
+			<li><p>Phase VII: Unified Observability (Prometheus + Loki)</p></li>
+			<li><p>Phase VIII: Status Page (Uptime Kuma)</p></li>
+		</ul>
+		<li><p><b>Stage 3: The &quot;Run&quot; (Intelligence &amp;
+		Automation)</b></p>
+		<ul>
+			<li><p>Phase IX: GitOps Governance (ArgoCD)</p></li>
+			<li><p>Phase X: Production-Grade Messaging (RabbitMQ HA)</p></li>
+			<li><p>Phase XI: Intelligence Layer (Ollama RAG)</p></li>
+		</ul>
+	</ol>
+	<hr/>
+
+	<h2 class="western">🏗️ Stage 1: The &quot;Crawl&quot; (Skeleton
+	Framework)</h2>
+	<p><b>Goal:</b> Establish physical connectivity, basic
+	virtualization, and your primary communication hub.</p>
+	<h3 class="western">Phase I: Infrastructure Reset &amp; IPs</h3>
+	<ul>
+		<li><p><b>Wipe Metadata:</b> Clean old Longhorn and RabbitMQ data
+		from your 500GB SSDs to ensure a fresh start.</p></li>
+		<li><p><b>Static IPs:</b> Use your router's DHCP reservation to
+		lock the IPs for Optiplex 1, Optiplex 2, and the Raspberry Pi.</p></li>
+		<li><p><b>Connectivity:</b> Ping all devices from your Windows 11
+		PC to confirm they are reachable.</p></li>
+	</ul>
+	<h3 class="western">Phase II: The Golden Template (Lite)</h3>
+	<ul>
+		<li><p><b>Build VM:</b> Create a single Ubuntu 24.04 VM.</p></li>
+		<li><p><b>Install Basics:</b> Install <code class="western">curl</code>,
+		<code class="western">qemu-guest-agent</code>, and <code class="western">ssh</code>.</p></li>
+		<li><p><b>Convert:</b> Right-click the VM in Proxmox and select
+		&quot;Convert to Template&quot;.</p></li>
+	</ul>
+	<h3 class="western">Phase III: Physical Quorum</h3>
+	<ul>
+		<li><p><b>Cluster:</b> Join Optiplex 7050 to the Optiplex 7020
+		cluster.</p></li>
+		<li><p><b>Arbitrator:</b> Set up the Raspberry Pi as a headless
+		<code class="western">qdevice</code> to prevent &quot;split-brain&quot;
+		scenarios.</p></li>
+	</ul>
+	<h3 class="western">Phase IV: Compute &amp; Storage</h3>
+	<ul>
+		<li><p><b>RKE2:</b> Spin up 3 VMs from your template (1 Master, 2
+		Workers) and run the basic RKE2 install script.</p></li>
+		<li><p><b>Longhorn:</b> Deploy Longhorn using the default <code class="western">kubectl
+		apply</code> method to manage your replicated storage.</p></li>
+	</ul>
+	<h3 class="western">Phase V: Sentinel Command Center (Mattermost)</h3>
+	<ul>
+		<li><p><b>Placement:</b> Deploy Mattermost on <b>Server 2</b>
+		(Optiplex 7050) as an LXC or VM.</p></li>
+		<li><p><b>Windows App:</b> Install the Mattermost app on your
+		Windows 11 PC.</p></li>
+		<li><p><b>Webhook:</b> Create an &quot;Incoming Webhook&quot; so
+		your server can send &quot;Success&quot; pings for later phases.</p></li>
+	</ul>
+	<hr/>
+
+	<h2 class="western">🚶 Stage 2: The &quot;Walk&quot;
+	(Observability)</h2>
+	<p><b>Goal:</b> Make the cluster &quot;talk&quot; by adding metrics
+	and logs.</p>
+	<h3 class="western">Phase VI: The Packaging Layer (Helm)</h3>
+	<ul>
+		<li><p><b>Setup:</b> Install Helm on your DevOps node.</p></li>
+		<li><p><b>Strict Policy:</b> From now on, only install apps using
+		Helm to keep the system organized.</p></li>
+	</ul>
+	<h3 class="western">Phase VII: Unified Observability (Prometheus +
+	Loki)</h3>
+	<ul>
+		<li><p><b>Metrics:</b> Install <code class="western">kube-prometheus-stack</code>
+		via Helm.</p></li>
+		<li><p><b>Logs:</b> Deploy <b>Grafana Loki</b> and <b>Promtail</b>
+		to collect and view all system logs in one place.</p></li>
+		<li><p><b>Alerting:</b> Connect Prometheus Alertmanager to
+		Mattermost to receive Windows notifications.</p></li>
+	</ul>
+	<h3 class="western">Phase VIII: Uptime Kuma (Status Page)</h3>
+	<ul>
+		<li><p><b>Monitor:</b> Deploy Uptime Kuma to track the &quot;up/down&quot;
+		status of your services.</p></li>
+		<li><p><b>Notify:</b> Link Kuma to Mattermost for instant status
+		updates.</p></li>
+	</ul>
+	<hr/>
+
+	<h2 class="western">🏃 Stage 3: The &quot;Run&quot; (Intelligence)</h2>
+	<p><b>Goal:</b> Full automation, high availability, and AI-driven
+	interactive control.</p>
+	<h3 class="western">Phase IX: GitOps Governance (ArgoCD)</h3>
+	<ul>
+		<li><p><b>Automation:</b> Install ArgoCD and link it to your GitHub
+		repository.</p></li>
+		<li><p><b>Sync:</b> Move your configs to Git; ArgoCD will now
+		automatically fix any &quot;drift&quot; in your cluster.</p></li>
+	</ul>
+	<h3 class="western">Phase X: High-Availability Messaging (RabbitMQ)</h3>
+	<ul>
+		<li><p><b>Deploy:</b> Use ArgoCD to deploy a full HA RabbitMQ
+		cluster.</p></li>
+		<li><p><b>Storage:</b> Configure a <b>40Gi replicated volume</b> in
+		Longhorn with a <b>1Gi memory limit</b>.</p></li>
+	</ul>
+	<h3 class="western">Phase XI: Intelligence Layer (Ollama RAG)</h3>
+	<ul>
+		<li><p><b>AI:</b> Deploy Ollama on <b>Server 2</b> (16GB RAM
+		allocation).</p></li>
+		<li><p><b>RAG Pipeline:</b> Feed your roadmaps and <b>Loki logs</b>
+		into Ollama.</p></li>
+		<li><p><b>Matterchat:</b> Interact with the AI via Mattermost to
+		ask for cluster status summaries.</p></li>
+	</ul>
+	<hr/>
+
+	<h2 class="western">📊 Detailed System Report (MD)</h2>
+	<p>Markdown</p>
+	<pre class="western"><code class="western"># 🛡️ Sentinel Server Status Report: Feb 2026</code>
+
+<code class="western">## 1. Physical Infrastructure</code>
+<code class="western">| Host | IP | Role | RAM Allocation |</code>
+<code class="western">| :--- | :--- | :--- | :--- |</code>
+<code class="western">| **Optiplex 7020** | 192.168.1.50 | PVE 1 / RKE2 Master | 32GB (Core Ops) |</code>
+<code class="western">| **Optiplex 7050** | 192.168.1.51 | PVE 2 / Worker 2 / AI | 32GB (Heavy Lifters) |</code>
+<code class="western">| **Raspberry Pi** | 192.168.1.52 | Quorum QDevice | Headless (Stability) |</code>
+
+<code class="western">## 2. Integrated Communication</code>
+<code class="western">- **Mattermost:** Established in Stage 1 to act as the 'System Ledger'.</code>
+<code class="western">- **Alert Routing:** Critical hardware/storage failures push direct notifications to Windows 11.</code>
+<code class="western">- **AI Integration:** Ollama parses Loki logs to explain 'Why' a service failed.</code>
+
+<code class="western">## 3. Storage Policy</code>
+<code class="western">- **Persistent Data:** 40Gi Replicated Block Storage via Longhorn.</code>
+<code class="western">- **Redundancy:** 2 Replicas (Server 1 + Server 2) for RabbitMQ persistence.</code></pre>
+	<hr/>
+
+	<h2 class="western">🔍 Missing Information &amp; Clarifications</h2>
+	<ul>
+		<li><p><b>Networking:</b> Please confirm if your router supports
+		<b>Static DHCP/IP Reservation</b>. If not, the plan must be
+		adjusted to include manual Netplan configuration on every VM to
+		prevent cluster failure.</p></li>
+		<li><p><b>Storage Space:</b> With 500GB SSDs, ensure you have
+		allocated roughly 100GB for the host OS and VM images before
+		dedicating large chunks to Longhorn replicas.</p></li>
+		<li><p><b>Secrets:</b> Before pushing to GitHub in Stage 3, you
+		will need to choose a tool (like <b>Sealed Secrets</b>) to keep
+		passwords safe.</p></li>
+	</ul>
+	<p><b>Would you like me to generate the &quot;Incoming Webhook&quot;
+	script for your Ansible playbooks so your servers can start
+	&quot;talking&quot; to Mattermost?</b></p>
+</div>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+</body>
+</html>

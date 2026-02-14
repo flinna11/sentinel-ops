@@ -1,0 +1,63 @@
+Andy's Ubuntu Server Gem
+Custom Gem
+Acknowledged. The MCP (Model Context Protocol) Server has been integrated into the "Sentinel" master blueprint. This addition transforms the cluster from a manually managed set of containers into an AI-orchestrated environment where your local LLMs can safely inspect and manage their own infrastructure.
+
+Below is the updated Sentinel Status Report with the new index, configuration ID, and the detailed multi-phase roadmap.
+
+📑 Sentinel: Multi-Phase Evolution Report
+Configuration ID: SENTINEL-2026-0126-ZTA-MCP
+
+Primary Anchor: 192.168.1.50 (Static)
+
+Status: Recovered & Stabilized; Ready for Phase 1 Expansion
+
+🗂️ Updated Index
+Executive Summary: Transition from manual recovery to AI-driven Git-Ops.
+
+Current Baseline: Hardware & software specifications post-IP re-anchoring.
+
+Phase 1: Git-Ops & Resource Rectification: Establishing the "Source of Truth" and 24GB expansion.
+
+Phase 2: Hardening & Vulnerability Scanning: OS security and CIS compliance auditing.
+
+Phase 3: Out-of-Band Monitoring (OOBM): Raspberry Pi integration with Prometheus/Grafana.
+
+Phase 4: MCP Integration (AI Control Plane): Connecting LLMs to cluster state via standardized protocol.
+
+Phase 5: Secure AI & Messaging: Zero Trust deployment of Ollama and RabbitMQ.
+
+Phase 6: Advanced Storage & Isolation: Longhorn USB RAID and Kata Container sandboxing.
+
+🗺️ The Sentinel Master Roadmap (Phase 4 Integrated)
+Phase	Milestone	Primary Goal	Key Tools
+Phase 1	Git-Ops & RAM	Initialise Git tracking for /etc/rancher/rke2/ and verify 24GB allocation.	Git, qm set 100
+Phase 2	Hardening	Execute OS/SSH hardening and run kube-bench for CIS compliance.	Kube-bench, Trivy
+Phase 3	Monitoring	Set up Prometheus/Grafana on a Raspberry Pi for external observability.	Prometheus, Grafana
+Phase 4	MCP Integration	(New) Deploy an MCP server to provide AI context for the RKE2 cluster.	kubernetes-mcp-server
+Phase 5	AI & Messaging	Deploy Ollama (16GB limit) and RabbitMQ with Zero Trust mTLS.	Ollama, RabbitMQ
+Phase 6	Storage/Isolation	Finalise security with Longhorn storage and Kata Containers.	Longhorn, Kata
+🏗️ MCP Server: Bringing Intelligence to the Sentinel
+The MCP server acts as a standardized "bridge" that allows an AI (like Ollama running locally or a remote agent) to safely interact with your cluster.
+
+What Tools Does MCP Bring to Your System?
+Cluster Inspection: AI can list all pods, check service statuses, and identify failing containers using natural language instead of complex kubectl commands.
+
+Log & Event Triage: Tools that allow the AI to read pod logs and cluster events to diagnose issues automatically.
+
+Diagnostic Reports: The ability for the AI to generate a "health report" of your RabbitMQ messaging bus or Ollama resource usage.
+
+Safe Automation: By using a read-only MCP server, the AI can suggest fixes and draft YAML manifests without the risk of accidentally deleting your production database.
+
+Demo: Sentinel AI Assistant
+Once deployed, you will be able to perform a "Hello World" diagnostic check by asking:
+
+"Sentinel AI, check if the Metrics Server is reporting data from the new 24GB RAM allocation and list any pods with high memory usage."
+
+🚦 Next Steps for Your Return
+Initialize Git: Commit current static IP and RKE2 configuration to your repository.
+
+Verify Memory: Confirm the 24GB upgrade is active on the Proxmox host.
+
+Deploy MCP: I can provide the RBAC (Role-Based Access Control) manifest to securely connect a read-only MCP server to your cluster whenever you are ready.
+
+The Roadmap and Report for Configuration SENTINEL-2026-0126-ZTA-MCP are now finalized. Ready for shutdown?

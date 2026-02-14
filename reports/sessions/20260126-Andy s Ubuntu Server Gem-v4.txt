@@ -1,0 +1,39 @@
+Kubeconfig Portability: Keep a copy of your kubeconfig on your OOBM device (Raspberry Pi) so you can run kubectl commands against the Sentinel node even if your primary workstation is offline.
+
+🗺️ Updated Prioritized Roadmap (Jan 26, 2026)
+This roadmap now integrates OOBM into the very beginning of your setup to ensure you never lose access during the hardening phases.
+
+Priority	Phase	Goal
+1	Git Config Management	
+Version control for Netplan, RKE2, and OOBM scripts.
+
+2	24GB RAM Upgrade	
+Finalize hardware allocation via Proxmox host.
+
+3	OS & SSH Hardening	Secure the Ubuntu 24.04 base and OOBM access points.
+
+4	Raspberry Pi OOBM	Set up the Pi as an external observer with Prometheus/Grafana.
+
+5	ZTA Demo & Storage	
+Deploy "Hello World" with Longhorn and Zero Trust NetworkPolicies.
+
+6	Ollama & RabbitMQ	
+Deploy AI core and messaging with mTLS and scoped access.
+
+7	Kata Containers	
+Apply final kernel-level hardware isolation.
+
+
+Export to Sheets
+
+📑 Final Status Summary (Pre-Shutdown)
+
+Sentinel Node: Anchored at 192.168.1.50.
+
+Current State: Database is clean; RKE2 is ready for stabilization.
+
+OOBM Plan: Raspberry Pi will act as the "Secondary Eye" to monitor the 24GB node.
+
+Your environment is now safe to shut down . 1. Run sudo systemctl stop rke2-server inside the VM. 2. Run sudo poweroff in the VM. 3. Run shutdown now on the Proxmox Host.
+
+Would you like me to draft the specific Raspberry Pi OOBM configuration script for your next session?

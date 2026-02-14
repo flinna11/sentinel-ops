@@ -1,0 +1,234 @@
+Absolutely, Andy — and since you already have a working RKE2 cluster, a functioning Longhorn control plane, and a RabbitMQ workload that depends on persistent storage, I’ll give you the **full, production‑grade, end‑to‑end setup sequence**.  
+
+This is not a generic guide — it’s the **exact sequence that avoids the pitfalls you’ve already encountered**, including replica adoption, engine image alignment, and RKE2 quirks around mount propagation.
+
+Below is the complete, structured workflow.
+
+---
+
+# 🧱 1. Prerequisites (RKE2 + Node Requirements)
+
+### **On every worker node**
+- Enable mount propagation (required for Longhorn):
+  ```bash
+  sudo mkdir -p /etc/rancher/rke2
+  sudo tee /etc/rancher/rke2/config.yaml <<EOF
+  kubelet-arg:
+    - "feature-gates=MountPropagation=true"
+  EOF
+  sudo systemctl restart rke2-agent
+  ```
+
+- Ensure required packages exist:
+  ```bash
+  sudo apt install -y open-iscsi nfs-common jq
+  sudo systemctl enable --now iscsid
+  ```
+
+- Verify `/var/lib/longhorn` has enough space and is on a persistent disk.
+
+### **Cluster-wide**
+- RKE2 version: v1.25+ recommended  
+- Longhorn version: v1.5.3 (your current version — keep consistent across nodes)
+
+---
+
+# 🧭 2. Install Longhorn (Helm or Manifest)
+
+### **Option A — Helm (recommended)**
+```bash
+helm repo add longhorn https://charts.longhorn.io
+helm repo update
+
+helm install longhorn longhorn/longhorn \
+  --namespace longhorn-system \
+  --create-namespace \
+  --set defaultSettings.defaultReplicaCount=2 \
+  --set defaultSettings.backupTarget="" \
+  --set defaultSettings.defaultDataPath="/var/lib/longhorn"
+```
+
+### **Option B — Manifest**
+```bash
+kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.5.3/deploy/longhorn.yaml
+```
+
+### **Verify**
+```bash
+kubectl -n longhorn-system get pods -o wide
+```
+All `manager`, `instance-manager`, and `engine-image` pods must be **Running**.
+
+---
+
+# 🧩 3. Configure Longhorn Settings (Post‑Install)
+
+Open the Longhorn UI → **Settings**:
+
+### **Critical settings**
+| Setting | Value | Why |
+|--------|--------|------|
+| Default Replica Count | 2 | Matches your 2‑node worker topology |
+| Guaranteed Engine CPU | 0.1–0.2 | Prevents engine starvation |
+| Replica Replenishment Wait | 30s | Helps avoid premature rebuilds |
+| Disable Scheduling on Cordoned Nodes | true | RKE2 cordons nodes during upgrades |
+| Storage Over-Provisioning | 200% | Standard |
+| Storage Minimal Available Percentage | 10% | Prevents disk exhaustion |
+
+---
+
+# 🗄 4. Create StorageClass for RabbitMQ
+
+RabbitMQ requires **ReadWriteOnce** and stable block storage.
+
+Create a StorageClass:
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: longhorn-rabbitmq
+provisioner: driver.longhorn.io
+allowVolumeExpansion: true
+parameters:
+  numberOfReplicas: "2"
+  staleReplicaTimeout: "30"
+reclaimPolicy: Retain
+volumeBindingMode: Immediate
+```
+
+Apply:
+```bash
+kubectl apply -f longhorn-rabbitmq-sc.yaml
+```
+
+---
+
+# 📦 5. Deploy RabbitMQ with Longhorn PVC
+
+### **PVC**
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rabbitmq-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn-rabbitmq
+  resources:
+    requests:
+      storage: 40Gi
+```
+
+### **RabbitMQ Deployment (StatefulSet)**
+Key points:
+- Use `volumeMounts` for `/var/lib/rabbitmq/mnesia`
+- Use `podAntiAffinity` if you want multi-node resilience
+- Use `ReadinessProbe` to avoid premature restarts
+
+Example snippet:
+```yaml
+volumeMounts:
+  - name: rabbitmq-data
+    mountPath: /var/lib/rabbitmq/mnesia
+volumes:
+  - name: rabbitmq-data
+    persistentVolumeClaim:
+      claimName: rabbitmq-data
+```
+
+Apply:
+```bash
+kubectl apply -f rabbitmq.yaml
+```
+
+---
+
+# 🔄 6. Validate Volume Attachment
+
+Check that Longhorn attached the volume to the correct node:
+
+```bash
+kubectl -n longhorn-system get volumes.longhorn.io
+```
+
+In the UI:
+- Volume should show **Attached**
+- Engine should be **Running**
+- Replicas should be **Healthy** (or rebuilding)
+
+---
+
+# 🛡 7. Configure Backups (Optional but Recommended)
+
+If using S3:
+```
+Settings → Backup Target → s3://bucket@region/
+```
+
+Provide credentials via:
+```
+Settings → Backup Target Credential Secret
+```
+
+---
+
+# 🧪 8. Test Failover & Replica Healing
+
+### **Test 1 — Node Drain**
+```bash
+kubectl drain worker-1 --ignore-daemonsets --delete-emptydir-data
+```
+Expected:
+- RabbitMQ pod reschedules to worker‑2
+- Longhorn engine detaches/reattaches
+- Replicas rebuild
+
+### **Test 2 — Hard Node Failure Simulation**
+Stop kubelet or shut down a node:
+```bash
+sudo systemctl stop rke2-agent
+```
+Expected:
+- Volume enters **Degraded**
+- Replica rebuilds when node returns
+
+---
+
+# 🧰 9. Ongoing Maintenance
+
+### **Monitor**
+- Replica rebuilds
+- Disk pressure
+- Engine image upgrades
+- Node cordon/drain events during RKE2 upgrades
+
+### **Upgrade Longhorn**
+Use the official upgrade manifest for your version.
+
+---
+
+# 🧵 10. Integrating with Your Recovery Workflow
+
+Your attached incident report shows:
+- Engine image alignment issues
+- Replica orphaning
+- Salvage workflow
+- Manual metadata cleanup
+
+The steps above **prevent** those issues by:
+- Ensuring mount propagation is enabled
+- Ensuring instance managers are consistent
+- Ensuring StorageClass settings match your topology
+- Ensuring RabbitMQ uses a stable PVC lifecycle
+
+---
+
+# If you want, I can also produce:
+- A **full architecture diagram** (RKE2 → Longhorn → RabbitMQ)
+- A **disaster recovery runbook** tailored to your cluster
+- A **one‑page cheat sheet** for Longhorn troubleshooting
+- A **Helm chart overlay** for RabbitMQ with all best‑practice settings
+
+Just tell me which direction you want to take next.
