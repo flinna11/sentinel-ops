@@ -1,0 +1,11 @@
+include_paths:
+  - "../canon"
+  - "../infra"
+  - "../reports"
+
+model: "gemma3:4b"
+
+vectorstore_path: "./vectorstore"
+
+chunk_size: 500
+chunk_overlap: 50
